@@ -1,11 +1,12 @@
-import './App.scss';
+import ProjectsPage from "@/pages/ProjectsPage/ProjectsPage";
+import AppLayout from "@/components/AppLayout/AppLayout";
 
-function App() {
+const App = () => {
     return (
-        <main>
-            <h1>Hello world!</h1>
-        </main>
-    );
+        <AppLayout>
+            <ProjectsPage/>
+        </AppLayout>
+    )
 }
 
 export default App
