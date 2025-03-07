@@ -6,9 +6,11 @@ const AppLayout = ({children}) => {
         <>
             <Box className={styles.background}/>
             <Container px={'4'}>
+                <header>Шапка Сайта</header>
                 <main>
                     {children}
                 </main>
+                <footer>Подвал Сайта</footer>
             </Container>
         </>
     )

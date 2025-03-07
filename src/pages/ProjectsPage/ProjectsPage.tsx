@@ -1,6 +1,8 @@
 import {Box, Heading, Text} from "@radix-ui/themes";
 import ProjectList from "@/components/ProjectList/ProjectList";
 import {useEffect, useState} from "react";
+import ProjectFilter from "@/components/ProjectFilter/ProjectFilter";
+import {useDebounce} from "@/hooks/useDebounce";
 
 export type Tech = 'html' | 'css' | 'javascript';
 export type ComplexityLevel = 'easy' | 'medium' | 'hard';
@@ -102,13 +104,33 @@ const ProjectsPage = () => {
         return () => clearTimeout(id)
     }, [])
 
+    const [complexity, setComplexity] = useState<ComplexityLevel | 'all'>('all')
+    const [tech, setTechValue] = useState<Tech | 'all'>('all')
+    const [subscription, setSubscription] = useState('all')
+    const [searchValue, setSearchValue] = useState('')
+
+    const debouncedSearchValue = useDebounce(searchValue)
+
     return (
         <Box>
             <Heading size={'7'}>Каталог проектов</Heading>
-            <Text as={'p'} color={'gray'}>
+            <Text as={'p'} color={'gray'} mb={'4'}>
                 Просмотрите нашу коллекцию проектов, чтобы попрактиковаться и улучшить свои навыки
             </Text>
-            <ProjectList projects={products} isLoading={isLoading}/>
+            <ProjectFilter
+                complexityValue={complexity}
+                setComplexityValue={setComplexity}
+                searchValue={searchValue}
+                setSearchValue={setSearchValue}
+                techValue={tech}
+                setTechValue={setTechValue}
+                subscriptionValue={subscription}
+                setSubscriptionValue={setSubscription}
+            />
+            <ProjectList
+                projects={products}
+                isLoading={isLoading}
+            />
         </Box>
     )
 }

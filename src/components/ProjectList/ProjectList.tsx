@@ -14,9 +14,9 @@ const ProjectList = ({projects, isLoading}: ProjectListProps) => {
     const skeletons = [...Array(SKELETONS_AMOUNT)].map((_, index) => <Skeleton key={index} width={'100%'} height={'445px'}/>)
 
     return (
-        <Grid columns={{initial: "1", sm: "2", md: "3"}} gap="5" width="auto">
-            {isLoading ? skeletons : projectPreviewCards}
-        </Grid>
+            <Grid columns={{initial: "1", sm: "2", md: "3"}} gap="5" width="auto">
+                {isLoading ? skeletons : projectPreviewCards}
+            </Grid>
     )
 }
 

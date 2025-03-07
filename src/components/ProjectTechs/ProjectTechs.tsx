@@ -19,7 +19,7 @@ const TechsMap: Record<Tech, TechsValue> = {
 const ProjectTechs = ({ techs }: ProjectTechsProps) => {
     return (
         <Flex align="center" gap="2">
-            <Text>Технологии:</Text>
+            <Text as={'p'}>Технологии:</Text>
             <Flex gap="2" wrap="wrap">
                 {techs.map((tech) => {
                     const { name, color } = TechsMap[tech];
