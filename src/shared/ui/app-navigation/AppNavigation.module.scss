@@ -1,0 +1,13 @@
+.linkWrapper {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+}
+
+.links {
+  all: unset;
+  display: flex;
+  gap: var(--space-7);
+}
