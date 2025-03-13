@@ -17,7 +17,7 @@ const complexityMap: Record<any, ComplexityValue> = {
 
 const getComplexityValue = (level: ProjectComplexityProps): ComplexityValue => complexityMap[level];
 
-const ProjectComplexity = ({ level }: any) => {
+export const ProjectComplexityBadge = ({ level }: any) => {
     const { name, color } = getComplexityValue(level);
 
     return (
@@ -27,5 +27,3 @@ const ProjectComplexity = ({ level }: any) => {
             </Flex>
     );
 };
-
-export default ProjectComplexity

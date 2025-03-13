@@ -1,8 +1,7 @@
-import ProjectList from "@/pages/projects/ui/ProjectList/ProjectList";
 import {useEffect, useState} from "react";
-import ProjectFilter from "@/pages/projects/ui/ProjectFilter/ProjectFilter";
-import {useDebounce} from "@/shared/lib/hooks";
-import {ProjectsLayout} from "@/pages/projects/ui/ProjectsLayout/ProjectsLayout";
+import {ProjectFilter} from "../ui/project-filter/project-filter";
+import {ProjectsLayout} from "../ui/projects-layout/projects-layout";
+import {ProjectList} from "./project-list/project-list";
 
 export type Tech = 'html' | 'css' | 'javascript';
 export type ComplexityLevel = 'easy' | 'medium' | 'hard';
@@ -108,8 +107,6 @@ const ProjectsLazy = () => {
     const [tech, setTechValue] = useState<Tech | 'all'>('all')
     const [subscription, setSubscription] = useState('all')
     const [searchValue, setSearchValue] = useState('')
-
-    const debouncedSearchValue = useDebounce(searchValue)
 
     return (
         <ProjectsLayout>

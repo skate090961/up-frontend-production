@@ -1,9 +1,9 @@
-import styles from "./ProjectFilter.module.scss";
+import styles from "./project-filter.module.scss";
 import {ChangeEvent, useState} from "react";
 import {Box, Button, Card, Flex, Grid, TextField} from "@radix-ui/themes";
 import {MagnifyingGlassIcon, MixerHorizontalIcon} from "@radix-ui/react-icons";
 import {AppSelect, Option} from "@/shared/ui/app-select";
-import {ComplexityLevel, Tech} from "@/pages/projects/ui/Projects";
+import {ComplexityLevel, Tech} from "../projects";
 
 interface ProjectFilterProps {
     searchValue: string
@@ -16,7 +16,7 @@ interface ProjectFilterProps {
     setComplexityValue: (newComplexity: ComplexityLevel) => void,
 }
 
-const ProjectFilter = (props: ProjectFilterProps) => {
+export const ProjectFilter = (props: ProjectFilterProps) => {
     const {
         searchValue,
         subscriptionValue,
@@ -104,5 +104,3 @@ const ProjectFilter = (props: ProjectFilterProps) => {
         </Box>
     )
 }
-
-export default ProjectFilter

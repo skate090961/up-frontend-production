@@ -1,2 +1,2 @@
-export {AppSelect} from './AppSelect'
-export type {Option} from './AppSelect'
+export {AppSelect} from './app-select'
+export type {Option} from './app-select'

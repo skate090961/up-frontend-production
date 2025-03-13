@@ -9,13 +9,13 @@ interface TechsValue {
     color: string;
 }
 
-const TechsMap: Record<Tech, TechsValue> = {
+const TechsMap: Record<any, TechsValue> = {
     html: { name: "HTML", color: "blue" },
     css: { name: "CSS", color: "ruby" },
     javascript: { name: "JavaScript", color: "amber" }
 };
 
-const ProjectTechs = ({ techs }: ProjectTechsProps) => {
+export const ProjectTechsBadge = ({ techs }: ProjectTechsProps) => {
     return (
         <Flex align="center" gap="2">
             <Text as={'p'}>Технологии:</Text>
@@ -28,5 +28,3 @@ const ProjectTechs = ({ techs }: ProjectTechsProps) => {
         </Flex>
     );
 };
-
-export default ProjectTechs;

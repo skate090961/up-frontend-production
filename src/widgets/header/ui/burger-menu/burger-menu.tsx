@@ -1,4 +1,4 @@
-import styles from './BurgerMenu.module.scss'
+import styles from './burger-menu.module.scss'
 import {Box, Button, Flex, Separator, Text} from "@radix-ui/themes";
 import {ExitIcon, GitHubLogoIcon} from "@radix-ui/react-icons";
 import {AppAvatar} from "@/shared/ui/app-avatar";

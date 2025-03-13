@@ -1,6 +1,6 @@
 import {Box, Button, Flex, Separator, Text} from "@radix-ui/themes";
 import {useState} from "react";
-import styles from './ProjectDetailed.module.scss'
+import styles from './project-detailed.module.scss'
 
 const ProjectDetailedLazy = () => {
     const [currentStep, setCurrentStep] = useState(1)

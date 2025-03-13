@@ -1,4 +1,4 @@
-import styles from "./AppNavigation.module.scss";
+import styles from "./app-navigation.module.scss";
 import {clsx} from "clsx";
 import {Text} from "@radix-ui/themes";
 import {ReactNode} from "react";

@@ -1,1 +1,1 @@
-export {useDebounce} from './useDebounce/useDebounce'
+export {useDebounce} from './use-debounce/use-debounce'

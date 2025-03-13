@@ -5,7 +5,7 @@ interface ProjectAccessProps {
     className?: string;
 }
 
-const ProjectAccess = ({isFree, className}: ProjectAccessProps) => {
+export const ProjectAccess = ({isFree, className}: ProjectAccessProps) => {
     const accessBadge = {
         name: isFree ? 'Бесплатно' : 'Premium',
         color: isFree ? 'blue' : 'violet'
@@ -20,5 +20,3 @@ const ProjectAccess = ({isFree, className}: ProjectAccessProps) => {
         </Badge>
     )
 }
-
-export default ProjectAccess

@@ -1,4 +1,4 @@
-import styles from "./BaseLayout.module.scss";
+import styles from "./base-layout.module.scss";
 import {Box, Container} from "@radix-ui/themes";
 
 interface BaseLayoutProps {
