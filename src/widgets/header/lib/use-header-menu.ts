@@ -1,6 +1,6 @@
-import {useEffect, useState} from "react";
-import {BREAKPOINTS} from "@/shared/lib/const";
-import {useLocation} from "react-router-dom";
+import { useEffect, useState } from 'react';
+import { useLocation } from 'react-router-dom';
+import { BREAKPOINTS } from '@/shared/lib/const';
 
 export const useHeaderMenu = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);

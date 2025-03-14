@@ -1,19 +1,19 @@
-import {CodeIcon, GearIcon, PersonIcon} from "@radix-ui/react-icons";
+import { CodeIcon, GearIcon, PersonIcon } from '@radix-ui/react-icons';
 
 export const PROFILE_LINKS = [
     {
         name: 'Профиль',
         path: '/profile',
-        icon: <PersonIcon />
+        icon: <PersonIcon />,
     },
     {
         name: 'Мои проекты',
         path: '/profile/projects',
-        icon: <CodeIcon/>
+        icon: <CodeIcon />,
     },
     {
         name: 'Настройки',
         path: '/settings',
-        icon: <GearIcon/>
+        icon: <GearIcon />,
     },
-]
+];

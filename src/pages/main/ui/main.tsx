@@ -1,9 +1,5 @@
 const MainLazy = () => {
-    return (
-        <div>
-            Main Page
-        </div>
-    );
+    return <div>Main Page</div>;
 };
 
-export default MainLazy
+export default MainLazy;

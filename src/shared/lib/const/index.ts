@@ -1,2 +1,2 @@
-export {BREAKPOINTS} from './breakpoints'
-export {AppRoutes} from './routes'
+export { BREAKPOINTS } from './breakpoints';
+export { AppRoutes } from './routes';

@@ -1,5 +1,5 @@
-import styles from "./base-layout.module.scss";
-import {Box, Container} from "@radix-ui/themes";
+import { Box, Container } from '@radix-ui/themes';
+import styles from './base-layout.module.scss';
 
 interface BaseLayoutProps {
     header: JSX.Element;
@@ -7,17 +7,15 @@ interface BaseLayoutProps {
     footer: JSX.Element;
 }
 
-export const BaseLayout = ({content, header, footer}: BaseLayoutProps) => {
+export const BaseLayout = ({ content, header, footer }: BaseLayoutProps) => {
     return (
         <>
-            <Box className={styles.background}/>
+            <Box className={styles.background} />
             {header}
-            <Container px={'4'}>
-                <main className={styles.main}>
-                    {content}
-                </main>
+            <Container px="4">
+                <main className={styles.main}>{content}</main>
                 {footer}
             </Container>
         </>
-    )
-}
+    );
+};

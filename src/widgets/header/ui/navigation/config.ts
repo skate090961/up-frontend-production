@@ -1,4 +1,4 @@
-import {AppRoutes} from "@/shared/lib/const";
+import { AppRoutes } from '@/shared/lib/const';
 
 export const NAV_LINKS = [
     {

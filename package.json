@@ -1,38 +1,57 @@
 {
-  "name": "up-frontend-production",
-  "private": true,
-  "version": "0.0.0",
-  "type": "module",
-  "scripts": {
-    "dev": "vite",
-    "build": "tsc -b && vite build",
-    "preview": "vite preview",
-    "lint:fsd": "pnpx steiger src"
-  },
-  "dependencies": {
-    "@radix-ui/react-icons": "^1.3.2",
-    "@radix-ui/themes": "^3.2.1",
-    "clsx": "^2.1.1",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-router-dom": "^6.2.1"
-  },
-  "devDependencies": {
-    "@feature-sliced/steiger-plugin": "^0.5.4",
-    "@types/node": "^22.13.10",
-    "@types/react": "^18.0.17",
-    "@types/react-dom": "^18.0.6",
-    "@types/react-router-dom": "^5.3.3",
-    "@vitejs/plugin-react-swc": "^3.8.0",
-    "sass-embedded": "^1.85.1",
-    "steiger": "^0.5.5",
-    "typescript": "^5.8.2",
-    "vite": "^6.2.1"
-  },
-  "pnpm": {
-    "ignoredBuiltDependencies": [
-      "@swc/core",
-      "esbuild"
-    ]
-  }
+    "name": "up-frontend-production",
+    "private": true,
+    "version": "0.0.0",
+    "type": "module",
+    "scripts": {
+        "start": "vite",
+        "build": "tsc -b && pnpm exec vite build",
+        "preview": "vite preview",
+        "lint:fsd": "pnpm exec steiger src",
+        "prettier": "pnpm exec prettier --write **/*.{ts,tsx,json}",
+        "lint:ts": "pnpm exec eslint \"./src/**/*.{ts,tsx}\"",
+        "lint:ts:fix": "pnpm exec eslint \"**/*.{ts,tsx}\" --fix",
+        "lint:scss": "pnpm exec stylelint \"**/*.scss\"",
+        "lint:scss:fix": "pnpm exec stylelint \"**/*.scss\" --fix"
+    },
+    "dependencies": {
+        "@radix-ui/react-icons": "^1.3.2",
+        "@radix-ui/themes": "^3.2.1",
+        "clsx": "^2.1.1",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-router-dom": "^6.2.1"
+    },
+    "devDependencies": {
+        "@feature-sliced/steiger-plugin": "^0.5.4",
+        "@types/node": "^22.13.10",
+        "@types/react": "^18.0.17",
+        "@types/react-dom": "^18.0.6",
+        "@types/react-router-dom": "^5.3.3",
+        "@typescript-eslint/eslint-plugin": "^5.12.1",
+        "@typescript-eslint/parser": "^5.12.1",
+        "@vitejs/plugin-react-swc": "^3.8.0",
+        "eslint": "^8.10.0",
+        "eslint-config-airbnb": "^19.0.4",
+        "eslint-config-prettier": "^8.5.0",
+        "eslint-plugin-import": "^2.25.4",
+        "eslint-plugin-jsx-a11y": "^6.5.1",
+        "eslint-plugin-react": "^7.29.2",
+        "eslint-plugin-react-hooks": "^4.3.0",
+        "eslint-plugin-storybook": "^0.6.7",
+        "eslint-plugin-unused-imports": "^2.0.0",
+        "prettier": "2.7.1",
+        "sass-embedded": "^1.85.1",
+        "steiger": "^0.5.5",
+        "stylelint": "^14.5.3",
+        "stylelint-config-standard-scss": "^3.0.0",
+        "typescript": "^4.5.5",
+        "vite": "^6.2.1"
+    },
+    "pnpm": {
+        "ignoredBuiltDependencies": [
+            "@swc/core",
+            "esbuild"
+        ]
+    }
 }

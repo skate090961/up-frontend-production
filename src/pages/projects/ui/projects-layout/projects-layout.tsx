@@ -1,13 +1,19 @@
-import {Box, Heading, Text} from "@radix-ui/themes";
+import { Box, Heading, Text } from '@radix-ui/themes';
+import { ReactNode } from 'react';
 
-export const ProjectsLayout = ({children}) => {
+interface ProjectsLayoutProps {
+    children: ReactNode;
+}
+
+export const ProjectsLayout = ({ children }: ProjectsLayoutProps) => {
     return (
         <Box>
-            <Heading size={'7'}>Каталог проектов</Heading>
-            <Text as={'p'} color={'gray'} mb={'4'}>
-                Просмотрите нашу коллекцию проектов, чтобы попрактиковаться и улучшить свои навыки
+            <Heading size="7">Каталог проектов</Heading>
+            <Text as="p" color="gray" mb="4">
+                Просмотрите нашу коллекцию проектов, чтобы попрактиковаться и
+                улучшить свои навыки
             </Text>
             {children}
         </Box>
-    )
-}
+    );
+};
