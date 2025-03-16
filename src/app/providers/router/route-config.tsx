@@ -1,15 +1,24 @@
 import { RouteProps } from 'react-router-dom';
 import { MainPage } from '@/pages/main';
 import { ProjectsPage } from '@/pages/projects';
-import { AppRoutes } from '@/shared/lib/const';
+import {
+    getRouteMain,
+    getRouteProjectDetails,
+    getRouteProjects,
+} from '@/shared/routes';
+import { ProjectDetailsPage } from '@/pages/project-details';
 
 export const routeConfig: RouteProps[] = [
     {
-        path: AppRoutes.MAIN,
+        path: getRouteMain(),
         element: <MainPage />,
     },
     {
-        path: AppRoutes.PROJECTS,
+        path: getRouteProjects(),
         element: <ProjectsPage />,
+    },
+    {
+        path: getRouteProjectDetails(':id'),
+        element: <ProjectDetailsPage />,
     },
 ];

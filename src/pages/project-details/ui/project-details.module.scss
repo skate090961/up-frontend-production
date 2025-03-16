@@ -1,0 +1,11 @@
+.stepNumber {
+    width: 3rem;
+    height: 3rem;
+    border-radius: var(--radius-2);
+    border: 1px solid var(--accent-9);
+
+    &.active {
+        background-color: var(--accent-9);
+        color: var(--primary-foreground);
+    }
+}

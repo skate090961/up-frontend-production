@@ -8,7 +8,7 @@ import { Navigation } from './navigation/navigation';
 import { useHeaderMenu } from '../lib/use-header-menu';
 import { LoginButton } from './login-button/login-button';
 import { AppLink } from '@/shared/ui/app-link';
-import { AppRoutes } from '@/shared/lib/const';
+import { getRouteMain } from '@/shared/routes';
 
 interface AppHeaderProps {
     data: any;
@@ -23,7 +23,7 @@ export const Header = memo(({ logout, data }: AppHeaderProps) => {
             <Container px="4">
                 <Flex align="center" justify="between">
                     <Box>
-                        <AppLink to={AppRoutes.MAIN}>Logo</AppLink>
+                        <AppLink to={getRouteMain()}>Logo</AppLink>
                     </Box>
 
                     <Navigation />

@@ -1,24 +1,25 @@
 import { Badge, Flex, Text } from '@radix-ui/themes';
 
 interface ProjectComplexityProps {
-    level: any;
+    level: 'medium' | 'easy' | 'hard';
 }
 
 interface ComplexityValue {
     name: string;
-    color: string;
+    color: 'green' | 'orange' | 'red';
 }
 
-const complexityMap: Record<any, ComplexityValue> = {
+const complexityMap = {
     easy: { name: 'Легкий', color: 'green' },
     medium: { name: 'Средний', color: 'orange' },
     hard: { name: 'Сложный', color: 'red' },
-};
+} as const;
 
-const getComplexityValue = (level: ProjectComplexityProps): ComplexityValue =>
-    complexityMap[level];
+const getComplexityValue = (
+    level: ProjectComplexityProps['level'],
+): ComplexityValue => complexityMap[level];
 
-export const ProjectComplexityBadge = ({ level }: any) => {
+export const ProjectComplexityBadge = ({ level }: ProjectComplexityProps) => {
     const { name, color } = getComplexityValue(level);
 
     return (

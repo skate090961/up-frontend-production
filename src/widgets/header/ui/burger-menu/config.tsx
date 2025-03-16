@@ -1,15 +1,15 @@
 import { FileTextIcon, HomeIcon, StarIcon } from '@radix-ui/react-icons';
-import { AppRoutes } from '@/shared/lib/const';
+import { getRouteMain, getRouteProjects } from '@/shared/routes';
 
 export const NAV_LINKS = [
     {
         name: 'Главная',
-        path: AppRoutes.MAIN,
+        path: getRouteMain(),
         icon: <HomeIcon />,
     },
     {
         name: 'Каталог проектов',
-        path: AppRoutes.PROJECTS,
+        path: getRouteProjects(),
         icon: <FileTextIcon />,
     },
     {

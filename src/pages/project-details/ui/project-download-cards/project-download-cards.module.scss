@@ -1,0 +1,25 @@
+.bgIcon {
+    width: fit-content;
+    background-color: var(--accent-a8);
+    border-radius: var(--radius-2);
+    padding: var(--space-2);
+
+    svg {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+.article {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.controlContainer {
+    margin-top: auto;
+
+    button {
+        flex: 1;
+    }
+}

@@ -1,9 +1,10 @@
 import { lazy } from 'react';
 
-export const ProjectDetailedLazy = lazy(
+export const ProjectDetailsLazy = lazy(
     () =>
         new Promise((res) => {
             // TODO: имитация задержки для проверки лези лоадинга
-            setTimeout(() => res(import('./project-detailed')), 1500);
+            // @ts-ignore
+            setTimeout(() => res(import('./project-details')), 1500);
         }),
 );

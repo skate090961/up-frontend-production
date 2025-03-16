@@ -1,13 +1,13 @@
-import { AppRoutes } from '@/shared/lib/const';
+import { getRouteMain, getRouteProjects } from '@/shared/routes';
 
 export const NAV_LINKS = [
     {
         name: 'Главная',
-        path: AppRoutes.MAIN,
+        path: getRouteMain(),
     },
     {
         name: 'Каталог проектов',
-        path: AppRoutes.PROJECTS,
+        path: getRouteProjects(),
     },
     {
         name: 'Premium',
