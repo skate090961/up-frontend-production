@@ -1,31 +1,26 @@
-import { useEffect, useState } from 'react';
-import { ProjectFilter } from '../ui/project-filter/project-filter';
-import { ProjectsLayout } from '../ui/projects-layout/projects-layout';
-import { ProjectList } from './project-list/project-list';
+import { Skeleton } from '@radix-ui/themes';
+import { memo, useEffect, useState } from 'react';
+import { ProjectCard } from '../ui/project-card/project-card';
+import { ListLayout } from '../ui/list-layout';
+import { NotFound } from '../ui/not-found';
 
-export type Tech = 'html' | 'css' | 'javascript';
-export type ComplexityLevel = 'easy' | 'medium' | 'hard';
-
-export type ProjectCard = {
-    id: string;
-    image: string;
-    title: string;
-    description: string;
-    isFree: boolean;
-    complexity: ComplexityLevel;
-    techs: Tech[];
+const getSkeletons = () => {
+    const SKELETONS_AMOUNT = 6;
+    return [...Array(SKELETONS_AMOUNT)].map((_, index) => (
+        <Skeleton key={index} width="100%" height="445px" />
+    ));
 };
 
-const ProjectsLazy = () => {
+export const ProjectsList = memo(() => {
     // TODO: имитация задержки сети для проверки скелетов (удалить когда будет готов бек)
     const [isLoading, setIsLoading] = useState(true);
-    const [products, setProducts] = useState<ProjectCard[]>([]);
+    const [projects, setProducts] = useState<any[]>([]);
 
     useEffect(() => {
         const id = setTimeout(() => {
             setProducts([
                 {
-                    id: '1',
+                    id: 1,
                     image: 'https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_475/Challenges/giwjqezcwrig3xi9rjzh.jpg',
                     title: 'Character counter',
                     description:
@@ -35,7 +30,7 @@ const ProjectsLazy = () => {
                     techs: ['html', 'css', 'javascript'],
                 },
                 {
-                    id: '2',
+                    id: 2,
                     image: 'https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_475/Challenges/k81dmgdccd7y5ltajrvh.jpg',
                     title: 'Conference ticket generator',
                     description:
@@ -45,7 +40,7 @@ const ProjectsLazy = () => {
                     techs: ['html', 'css', 'javascript'],
                 },
                 {
-                    id: '3',
+                    id: 3,
                     image: 'https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_475/Challenges/jc6hb2cbxsmpxzqolm0h.jpg',
                     title: 'Tech book club landing page',
                     description:
@@ -55,7 +50,7 @@ const ProjectsLazy = () => {
                     techs: ['html', 'css'],
                 },
                 {
-                    id: '4',
+                    id: 4,
                     image: 'https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_475/Challenges/dgncmovanuzj13hyobkz.jpg',
                     title: 'Personal finance app',
                     description:
@@ -65,7 +60,7 @@ const ProjectsLazy = () => {
                     techs: ['html', 'css', 'javascript'],
                 },
                 {
-                    id: '5',
+                    id: 5,
                     image: 'https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_475/Challenges/nr04mhuzgpmuipedmqcc.jpg',
                     title: 'FAQ accordion',
                     description:
@@ -75,7 +70,7 @@ const ProjectsLazy = () => {
                     techs: ['html', 'css', 'javascript'],
                 },
                 {
-                    id: '6',
+                    id: 6,
                     image: 'https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_475/Challenges/cmab9xsatnq8m04w5ikl.jpg',
                     title: 'Blog preview card',
                     description:
@@ -85,7 +80,7 @@ const ProjectsLazy = () => {
                     techs: ['html', 'css'],
                 },
                 {
-                    id: '7',
+                    id: 7,
                     image: 'https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_475/Challenges/v7pbc2r5ast5be2btubk.jpg',
                     title: 'Body Mass Index calculator',
                     description:
@@ -95,7 +90,7 @@ const ProjectsLazy = () => {
                     techs: ['html', 'css', 'javascript'],
                 },
                 {
-                    id: '8',
+                    id: 8,
                     image: 'https://res.cloudinary.com/dz209s6jk/image/upload/f_auto,q_auto,w_475/Challenges/l12uqethss9x3xcfmiki.jpg',
                     title: 'Any way project',
                     description:
@@ -111,28 +106,16 @@ const ProjectsLazy = () => {
         return () => clearTimeout(id);
     }, []);
 
-    const [complexity, setComplexity] = useState<ComplexityLevel | 'all'>(
-        'all',
-    );
-    const [tech, setTechValue] = useState<Tech | 'all'>('all');
-    const [subscription, setSubscription] = useState('all');
-    const [searchValue, setSearchValue] = useState('');
+    if (!isLoading && !projects?.length) {
+        return <NotFound />;
+    }
+
+    const projectPreviewCards = projects?.map((project) => (
+        <ProjectCard key={project.id} {...project} />
+    ));
+    const skeletons = getSkeletons();
 
     return (
-        <ProjectsLayout>
-            <ProjectFilter
-                complexityValue={complexity}
-                setComplexityValue={setComplexity}
-                searchValue={searchValue}
-                setSearchValue={setSearchValue}
-                techValue={tech}
-                setTechValue={setTechValue}
-                subscriptionValue={subscription}
-                setSubscriptionValue={setSubscription}
-            />
-            <ProjectList projects={products} isLoading={isLoading} />
-        </ProjectsLayout>
+        <ListLayout>{isLoading ? skeletons : projectPreviewCards}</ListLayout>
     );
-};
-
-export default ProjectsLazy;
+});

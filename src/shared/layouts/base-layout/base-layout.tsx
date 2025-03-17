@@ -1,6 +1,6 @@
 import { Box, Container } from '@radix-ui/themes';
-import styles from './base-layout.module.scss';
 import { ReactElement } from 'react';
+import styles from './base-layout.module.scss';
 
 interface BaseLayoutProps {
     header: ReactElement;

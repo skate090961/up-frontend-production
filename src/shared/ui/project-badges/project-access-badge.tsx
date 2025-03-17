@@ -6,7 +6,7 @@ interface ProjectAccessProps {
     size?: '1' | '2' | '3';
 }
 
-export const ProjectAccess = ({
+export const ProjectAccessBadge = ({
     isFree,
     className,
     size,

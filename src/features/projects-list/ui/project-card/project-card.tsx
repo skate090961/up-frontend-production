@@ -1,30 +1,38 @@
 import { Button, Card, Flex, Heading, Inset, Text } from '@radix-ui/themes';
 import { ArrowRightIcon } from '@radix-ui/react-icons';
 import { memo } from 'react';
-import styles from './project-preview-card.module.scss';
-import { ProjectAccess } from '../project-access-badge/project-access-badge';
-import { ProjectComplexityBadge } from '../project-complexity-badge/project-complexity-badge';
-import { ProjectTechsBadge } from '../project-techs-badge/project-techs-badge';
+import styles from './project-card.module.scss';
+
 import { AppLink } from '@/shared/ui/app-link';
 import { getRouteProjectDetails } from '@/shared/routes';
+import {
+    ProjectAccessBadge,
+    ProjectComplexityBadge,
+    ProjectTechsBadge,
+} from '@/shared/ui/project-badges';
 
-export const ProjectPreviewCard = memo((props: any) => {
+interface ProjectCardProps {
+    id: number;
+    title: string;
+    image: string;
+    description: string;
+    isFree: boolean;
+    complexity: any;
+    techs: any;
+}
+
+export const ProjectCard = memo((props: ProjectCardProps) => {
     const { title, image, description, isFree, complexity, techs, id } = props;
-    const isAccessValue = isFree !== undefined && isFree !== null;
 
     return (
         <Card size="2" variant="classic" className={styles.card}>
             <article className={styles.article}>
                 <Inset clip="padding-box" side="top" pb="current">
-                    {image && (
-                        <img src={image} alt={title} className={styles.image} />
-                    )}
-                    {isAccessValue && (
-                        <ProjectAccess
-                            isFree={isFree}
-                            className={styles.accessBadge}
-                        />
-                    )}
+                    <img src={image} alt={title} className={styles.image} />
+                    <ProjectAccessBadge
+                        isFree={isFree}
+                        className={styles.accessBadge}
+                    />
                 </Inset>
                 <Heading as="h3" size="5" mb="1">
                     {title}
@@ -34,13 +42,11 @@ export const ProjectPreviewCard = memo((props: any) => {
                 </Text>
                 <Flex direction="column" className={styles.controlContainer}>
                     <Flex direction="column" mb="4">
-                        {complexity && (
-                            <ProjectComplexityBadge level={complexity} />
-                        )}
-                        {techs && <ProjectTechsBadge techs={techs} />}
+                        <ProjectComplexityBadge level={complexity} />
+                        <ProjectTechsBadge techs={techs} />
                     </Flex>
                     <Button asChild>
-                        <AppLink to={getRouteProjectDetails(id)}>
+                        <AppLink to={getRouteProjectDetails(String(id))}>
                             Подробнее
                             <ArrowRightIcon />
                         </AppLink>

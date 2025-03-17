@@ -2,11 +2,14 @@ import { Box, Button, Card, Flex, Grid, Heading, Text } from '@radix-ui/themes';
 import { ArrowRightIcon, CheckIcon } from '@radix-ui/react-icons';
 import { useParams } from 'react-router-dom';
 import styles from './project-detail-tab-content.module.scss';
-import { ProjectAccess } from '@/pages/projects/ui/project-access-badge/project-access-badge';
-import { ProjectComplexityBadge } from '@/pages/projects/ui/project-complexity-badge/project-complexity-badge';
-import { ProjectTechsBadge } from '@/pages/projects/ui/project-techs-badge/project-techs-badge';
+
 import { AppLink } from '@/shared/ui/app-link';
 import { AppAccordion } from '@/shared/ui/app-accordion';
+import {
+    ProjectAccessBadge,
+    ProjectComplexityBadge,
+    ProjectTechsBadge,
+} from '@/shared/ui/project-badges';
 
 const accordionItems = [
     {
@@ -143,12 +146,10 @@ export const ProjectDetailTabContent = () => {
                         <Flex direction="column" gap="2">
                             <Flex align="center" justify="between">
                                 {project?.title && (
-                                    <Heading size="8">
-                                        {project.title}
-                                    </Heading>
+                                    <Heading size="8">{project.title}</Heading>
                                 )}
                                 {isAccessValue && (
-                                    <ProjectAccess
+                                    <ProjectAccessBadge
                                         isFree={project.isFree}
                                         size="3"
                                     />
