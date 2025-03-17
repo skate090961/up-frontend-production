@@ -1,0 +1,27 @@
+.bgIcon {
+    width: fit-content;
+    background-color: var(--accent-a8);
+    border-radius: var(--radius-2);
+    padding: var(--space-2);
+
+    svg {
+        width: 32px;
+        height: 32px;
+    }
+}
+
+.stepCount {
+    background-color: var(--accent-a8);
+    border-radius: var(--radius-2);
+    padding: var(--space-2) var(--space-4);
+}
+
+.background {
+    position: absolute;
+    z-index: var(--background-z-index);
+    left: 0;
+    right: 0;
+    height: 480px;
+    opacity: 0.4;
+    background: linear-gradient(transparent, var(--accent-4), transparent);
+}
