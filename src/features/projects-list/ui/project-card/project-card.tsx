@@ -9,7 +9,7 @@ import {
     ProjectAccessBadge,
     ProjectComplexityBadge,
     ProjectTechsBadge,
-} from '@/shared/ui/project-badges';
+} from '@/entities/project';
 
 interface ProjectCardProps {
     id: number;

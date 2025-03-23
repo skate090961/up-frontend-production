@@ -1,1 +1,1 @@
-export { ProjectDetailsLazy as ProjectDetailsPage } from './ui/project-details.lazy';
+export { ProjectDetailsLazy as ProjectDetailsPage } from './project-details.lazy';

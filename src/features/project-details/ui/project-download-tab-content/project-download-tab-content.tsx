@@ -1,4 +1,3 @@
-import { Crosshair2Icon, FigmaLogoIcon, FileIcon } from '@radix-ui/react-icons';
 import { Box, Flex, Heading, Text } from '@radix-ui/themes';
 import { ProjectDownloadCards } from '../project-download-cards/project-download-cards';
 import { AppAccordion } from '@/shared/ui/app-accordion';
@@ -22,30 +21,6 @@ const accordionItems = [
     },
 ];
 
-const downloadsItems = [
-    {
-        title: 'Файл дизайна Figma',
-        description:
-            'Загрузите файл дизайна Figma, чтобы ссылаться на компоненты пользовательского интерфейса, макет и дизайн систему.',
-        icon: <FigmaLogoIcon />,
-        buttonName: 'Скачать файлы Figma',
-    },
-    {
-        title: 'Шаблон проекта',
-        description:
-            'Получите стартовый шаблон со всеми необходимыми файлами и инструкциями для начала разработки.',
-        icon: <FileIcon />,
-        buttonName: 'Скачать Шаблон',
-    },
-    {
-        title: 'Проект с Багами',
-        description:
-            'Загрузите версию проекта с преднамеренными багами, которые вы можете найти и исправить.',
-        icon: <Crosshair2Icon />,
-        buttonName: 'Скачать Проект',
-    },
-];
-
 export const ProjectDownloadTabContent = () => {
     return (
         <Box>
@@ -56,7 +31,7 @@ export const ProjectDownloadTabContent = () => {
                 стилю обучения и уровню опыта.
             </Text>
             <Flex direction="column" gap="4">
-                <ProjectDownloadCards cards={downloadsItems} />
+                <ProjectDownloadCards id={3} />
                 <Flex direction="column" gap="2">
                     <Heading as="h2" size="6">
                         Часто задаваемые вопросы

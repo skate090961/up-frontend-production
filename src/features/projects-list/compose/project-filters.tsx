@@ -3,7 +3,11 @@ import { useState } from 'react';
 import { AppSelect } from '@/shared/ui/app-select';
 import { AppTextField } from '@/shared/ui/app-text-field';
 import { FiltersLayout } from '../ui/filters-layout';
-import { complexityOpts, subscriptionOpts, techOpts } from '../filter-options';
+import {
+    complexityOpts,
+    subscriptionOpts,
+    techOpts,
+} from '../model/filter-options';
 
 export const ProjectFilters = () => {
     const [complexity, setComplexity] = useState<any>('all');

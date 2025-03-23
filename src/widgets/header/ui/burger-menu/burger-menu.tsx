@@ -4,7 +4,7 @@ import styles from './burger-menu.module.scss';
 import { AppAvatar } from '@/shared/ui/app-avatar';
 import { AppNavigation } from '@/shared/ui/app-navigation';
 import { NAV_LINKS } from './config';
-import { PROFILE_LINKS } from '../../lib/profile-links';
+import { PROFILE_LINKS } from '../../config/profile-links';
 
 interface BurgerMenuProps {
     data: any;

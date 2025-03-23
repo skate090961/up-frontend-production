@@ -2,14 +2,15 @@ import { Box, Button, Card, Flex, Grid, Heading, Text } from '@radix-ui/themes';
 import { ArrowRightIcon, CheckIcon } from '@radix-ui/react-icons';
 import { useParams } from 'react-router-dom';
 import styles from './project-detail-tab-content.module.scss';
-
-import { AppLink } from '@/shared/ui/app-link';
 import { AppAccordion } from '@/shared/ui/app-accordion';
+
+import { useTabs } from '../../lib/use-tabs';
+import { TabValues } from '../../model/types/tabs';
 import {
     ProjectAccessBadge,
     ProjectComplexityBadge,
     ProjectTechsBadge,
-} from '@/shared/ui/project-badges';
+} from '@/entities/project';
 
 const accordionItems = [
     {
@@ -128,12 +129,15 @@ const projects = [
 ];
 
 export const ProjectDetailTabContent = () => {
+    const { setActiveTab } = useTabs();
     const { id } = useParams();
 
     const project = projects.find((project) => project.id === id);
 
     const isAccessValue =
         project?.isFree !== undefined && project?.isFree !== null;
+
+    const nextTabHandler = () => setActiveTab(TabValues.Downloads);
 
     return (
         <Box>
@@ -172,11 +176,9 @@ export const ProjectDetailTabContent = () => {
                             </Text>
                         )}
                         <Flex className={styles.controlContainer}>
-                            <Button asChild>
-                                <AppLink to="">
-                                    Далее
-                                    <ArrowRightIcon />
-                                </AppLink>
+                            <Button onClick={nextTabHandler}>
+                                Далее
+                                <ArrowRightIcon />
                             </Button>
                         </Flex>
                     </Card>

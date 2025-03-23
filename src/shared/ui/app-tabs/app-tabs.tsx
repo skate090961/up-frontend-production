@@ -10,6 +10,7 @@ export interface Tab<T> {
 }
 
 interface AppTabsProps<T extends string> {
+    value?: T;
     defaultValue?: T;
     tabs: Tab<T>[];
     onValueChange?: (value: T) => void;
@@ -17,15 +18,17 @@ interface AppTabsProps<T extends string> {
 
 export const AppTabs = <T extends string>({
     defaultValue,
+    value,
     tabs,
     onValueChange,
 }: AppTabsProps<T>) => {
+    const handleChange = (value: string) => onValueChange?.(value as T);
+
     return (
         <Tabs.Root
             defaultValue={defaultValue}
-            onValueChange={(value: string) => {
-                onValueChange?.(value as T);
-            }}
+            onValueChange={handleChange}
+            value={value}
         >
             <Tabs.List>
                 {tabs.map((tab) => (

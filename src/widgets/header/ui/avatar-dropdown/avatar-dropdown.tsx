@@ -1,7 +1,7 @@
 import { Button, DropdownMenu, Reset, Text } from '@radix-ui/themes';
 import { ExitIcon } from '@radix-ui/react-icons';
 import { AppAvatar } from '@/shared/ui/app-avatar';
-import { PROFILE_LINKS } from '../../lib/profile-links';
+import { PROFILE_LINKS } from '../../config/profile-links';
 import { AppLink } from '@/shared/ui/app-link';
 
 interface ProfileMenuProps {
