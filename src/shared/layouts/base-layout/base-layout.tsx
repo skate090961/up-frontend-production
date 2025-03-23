@@ -3,9 +3,9 @@ import { ReactElement } from 'react';
 import styles from './base-layout.module.scss';
 
 interface BaseLayoutProps {
-    header: ReactElement;
+    header?: ReactElement;
     content: ReactElement;
-    footer: ReactElement;
+    footer?: ReactElement;
 }
 
 export const BaseLayout = ({ content, header, footer }: BaseLayoutProps) => {
@@ -14,7 +14,7 @@ export const BaseLayout = ({ content, header, footer }: BaseLayoutProps) => {
             <Box className={styles.background} />
             {header}
             <Container px="4">
-                <main className={styles.main}>{content}</main>
+                <main>{content}</main>
             </Container>
             {footer}
         </>
