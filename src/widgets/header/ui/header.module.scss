@@ -1,8 +1,12 @@
 .header {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: var(--accent-2);
-    padding: var(--space-3) 0;
     border-bottom: 1px solid var(--gray-a5);
     backdrop-filter: blur(64px);
     position: relative;
     z-index: var(--header-z-index);
+    height: var(--header-height);
 }

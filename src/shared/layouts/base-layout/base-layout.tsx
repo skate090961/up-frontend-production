@@ -15,8 +15,8 @@ export const BaseLayout = ({ content, header, footer }: BaseLayoutProps) => {
             {header}
             <Container px="4">
                 <main className={styles.main}>{content}</main>
-                {footer}
             </Container>
+            {footer}
         </>
     );
 };

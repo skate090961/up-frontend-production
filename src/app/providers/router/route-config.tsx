@@ -7,6 +7,7 @@ import {
     getRouteProjects,
 } from '@/shared/routes';
 import { ProjectDetailsPage } from '@/pages/project-details';
+import { NotFoundPage } from '@/pages/not-found-page';
 
 export const routeConfig: RouteProps[] = [
     {
@@ -20,5 +21,9 @@ export const routeConfig: RouteProps[] = [
     {
         path: getRouteProjectDetails(':id'),
         element: <ProjectDetailsPage />,
+    },
+    {
+        path: '*',
+        element: <NotFoundPage />,
     },
 ];
